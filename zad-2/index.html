@@ -6,10 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zadanie2</title>
     <style>
-        
+        html, body {margin: 0; height: 100%; overflow: hidden;}
+
+        .title{
+            box-sizing: border-box;
+            background-color: gray;
+            position: sticky;
+            padding-top: 1em;
+            min-height: 70px;
+            max-height: 70px;
+        }
+
+        .title p {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            height: 100%; 
+            width: 100%;
+        }
+
+        .contents{
+            background-color: gray;
+            margin-top: 2px;
+            min-width: 120px;
+            height: 100%;
+        }
+
+        .contents p{
+            text-align: center;
+        }
+
+        .article{
+            width: 100%;
+            height: 100%;
+            overflow-y:auto;
+        }
+
+        .article p {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        @media only screen and (max-width: 240px) {
+            body{
+                overflow-x: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
+
+<div class="title">
+   <p>Tytuł</p>
+</div>
+
+<div class="container">
+    <div class="contents">
+        <p>Spis treści</p>
+    </div>
+    
+    <div class="article">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non lorem felis. Nam et arcu ut turpis iaculis semper nec eget mi. Donec tincidunt justo tortor, nec posuere ipsum ullamcorper ut. In tincidunt odio eu urna venenatis convallis. Vivamus in ex ultrices, lobortis erat eu, pulvinar nibh. Nunc ornare mauris fermentum viverra sodales. In dapibus leo eget erat tempus, laoreet mattis massa porttitor. Etiam imperdiet nulla felis, non vestibulum nunc efficitur a. Curabitur vehicula felis eu posuere ullamcorper. Morbi volutpat vel sem at fringilla. Curabitur euismod ut erat eget viverra. Aenean a metus a odio sollicitudin rhoncus. Maecenas suscipit diam vitae elementum consequat. Donec semper lorem ut lacus pellentesque porta.
+
+            Etiam in bibendum erat, blandit porta enim. Aenean pharetra consequat justo, eleifend sodales dui tempor sit amet. Suspendisse potenti. Maecenas facilisis est vitae porttitor porta. Cras nibh lorem, laoreet ut placerat sit amet, consequat sed orci. Fusce purus odio, tincidunt vitae leo nec, pharetra tincidunt nunc. Morbi lobortis porttitor sapien vitae porttitor. Sed pharetra efficitur bibendum.
+
+            Aliquam ac ligula magna. Pellentesque id sapien a turpis venenatis elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam vitae interdum nunc. Donec vehicula mi vel elementum bibendum. Sed pulvinar vestibulum lorem in dictum. Aenean eget lectus urna. Proin in facilisis enim. Quisque ut leo massa.
+
+            Proin tincidunt eros in viverra tempus. Nunc nisl nunc, iaculis sed metus eget, volutpat laoreet lectus. Pellentesque rutrum efficitur metus, at consectetur mauris egestas sit amet. Curabitur eget finibus nisi. Fusce vulputate vulputate sapien. Mauris nec tellus est. Nunc gravida turpis sapien, non consectetur enim euismod eget.
+
+            Etiam fermentum lacus pretium consequat mollis. Praesent dignissim neque augue, in sagittis ex malesuada nec. Nam porttitor orci purus, in faucibus nibh mollis ac. Nunc eu nisi sollicitudin nibh gravida mollis. Cras vel dui lectus. Ut rhoncus semper sapien, in lobortis sapien fermentum sed. Praesent dictum enim nibh, sit amet finibus tellus euismod quis. Sed ante velit, placerat eget elit at, posuere iaculis dui. Quisque congue sagittis vulputate. Vivamus iaculis, elit at lobortis porta, turpis nibh efficitur lacus, et faucibus ex est quis nunc. Aliquam vitae facilisis sapien, eu fermentum nunc. Duis finibus consequat tincidunt. Ut eget eleifend odio.
+        </p>
+    </div>
+</div>
 
 </body>
 </html>
