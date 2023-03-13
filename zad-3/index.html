@@ -5,11 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zadanie3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <style>
-        
+
+        .panel{
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap; 
+            width: fit-content;
+            height: fit-content;
+            border: solid;
+        }
+
+        button{
+            all: unset;
+            width: 200px;
+            margin: 5px;
+            padding: 12px 16px;
+            border: solid;
+            border-color: lightskyblue;
+            border-radius: 15pt;
+            font-size: 20px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        button:hover {
+            color: royalblue;
+        }
+
+        button:focus{
+            box-shadow: 4px 4px 5px #aaaaaa;
+        }
+
+        button i{
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
     </style>
 </head>
 <body>
+
+<div class="panel">
+
+    <button> <i class="fa-solid fa-arrow-rotate-left"></i>GO BACK</button>
+
+    <button> <i class="fa-regular fa-floppy-disk"></i>SAVE</button>
+
+    <button> <i class="fa-solid fa-trash-can-arrow-up"></i></i>DELETE</button>
+
+</div>
 
 </body>
 </html>
