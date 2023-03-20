@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zadanie1</title>
+    <style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#slider {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 20px;
+		}
+
+		#circle {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-color: blue;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 24px;
+			color: white;
+			font-weight: bold;
+		}
+    </style>
+</head>
+<body>
+	<div id="slider">
+		<input type="range" min="10" max="500" value="200" id="slider-range">
+	</div>
+	<div id="circle">
+		<span id="diameter">200px</span>
+	</div>
+
+	<script>
+		var slider = document.getElementById("slider-range");
+		var circle = document.getElementById("circle");
+		var diameter = document.getElementById("diameter");
+
+		slider.addEventListener("input", function() {
+			var value = slider.value;
+			circle.style.width = value + "px";
+			circle.style.height = value + "px";
+			diameter.textContent = value >= 50 ? value + "px" : "";
+		});
+	</script>
+</body>
+</html>
