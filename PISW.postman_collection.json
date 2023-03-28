@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "29b942a4-3ab7-4d28-b839-bcd1b7f5327f",
+		"name": "PISW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23917482"
+	},
+	"item": [
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerName\": \"Pawel\",\r\n    \"items\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order history",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"customerName\": \"Pawel\",\r\n    \"courierName\": \"DHL\",\r\n    \"deliveryStatus\": \"CREATED\",\r\n    \"productsNames\": \"cola, pepsi, lays\",\r\n    \"totalPrice\": 160.30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ordersHistory/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ordersHistory",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change order status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/2/delivery/CREATED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"2",
+						"delivery",
+						"CREATED"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change order history status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ordersHistory/1/delivery/PICKED_UP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ordersHistory",
+						"1",
+						"delivery",
+						"PICKED_UP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all order history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ordersHistory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ordersHistory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get order history by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/ordersHistory/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ordersHistory",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
