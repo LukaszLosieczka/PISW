@@ -20,13 +20,13 @@ public class OrderHistoryController {
     public ResponseEntity<Object> createOrderHistory(@RequestBody OrderHistory orderHistory){
         try{
             OrderHistory newOrderHistory = orderHistoryService.createOrderHistory(orderHistory);
-            return new ResponseEntity<>(newOrderHistory, HttpStatus.OK);
+            return new ResponseEntity<>(newOrderHistory, HttpStatus.CREATED);
         }catch (RuntimeException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-    @PatchMapping("/{id}/delivery/{status}")
+    @PutMapping("/{id}/delivery/{status}")
     public ResponseEntity<Object> changeDeliveryStatus(@PathVariable("id") Long orderId,
                                                        @PathVariable("status") DeliveryStatus status){
         try{
