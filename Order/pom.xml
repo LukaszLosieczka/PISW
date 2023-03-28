@@ -73,6 +73,35 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <!-- zad-4 -->
+            <!--maven clean install -->
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>5.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>
+                                ${project.basedir}/src/main/resources/order_history.json <!--http://localhost:8081/v3/api-docs/ -->
+                            </inputSpec>
+                            <generatorName>spring</generatorName>
+                            <apiPackage>com.example.order.api</apiPackage>
+                            <modelPackage>com.example.order.model</modelPackage>
+                            <supportingFilesToGenerate>
+                                ApiUtil.java
+                            </supportingFilesToGenerate>
+                            <configOptions>
+                                <delegatePattern>true</delegatePattern>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
