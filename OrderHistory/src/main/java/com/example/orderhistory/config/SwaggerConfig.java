@@ -11,11 +11,22 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class SwaggerConfig {
     @Bean
-    public Docket swaggerApi() {
+    public Docket swaggerServiceApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("service")
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.regex("^(?!/(error).*$).*$"))
+                .paths(PathSelectors.regex("\\/ordersHistory\\/(create|.*\\/delivery\\/.*$)"))
+                .build();
+    }
+
+    @Bean
+    public Docket swaggerProviderApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("provider")
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.regex("\\/ordersHistory($|\\/\\{id\\}$)"))
                 .build();
     }
 

@@ -20,6 +20,7 @@ public class Delivery {
 
     private String courierName;
 
+    @Enumerated(value = EnumType.STRING)
     private DeliveryStatus status;
 
     public Delivery(String courierName, DeliveryStatus status){
