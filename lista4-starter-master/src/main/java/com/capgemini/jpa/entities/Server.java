@@ -4,19 +4,19 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "server")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@SQLDelete(sql = "UPDATE server SET is_active=false WHERE id=?")
+@Where(clause = "is_active=true")
 public class Server {
 
     @Id
@@ -30,25 +30,41 @@ public class Server {
     @Column(nullable = false)
     private String ip;
 
+    @Version
+    @Column(name = "version")
+    private Long version;
+
+    @Column(name = "created_date")
+    private LocalDateTime createdDate;
+
+    @Column(name = "update_date")
+    private LocalDateTime updateDate;
+
+    @Column(name = "is_active")
+    private Boolean isActive = Boolean.TRUE;
+
     public Server(String name, String ip) {
         super();
         this.name = name;
         this.ip = ip;
     }
 
-    public Long getVersion(){
-        //todo: uncomment it
-        return null;
-    }
-
     public LocalDateTime getCreatedDate(){
-        //todo: uncomment it
-        return null;
+        return createdDate;
     }
 
     public LocalDateTime getLastUpdateDate(){
-        //todo: uncomment it
-        return null;
+        return updateDate;
     }
 
+    @PrePersist
+    public void prePersist() {
+        createdDate = LocalDateTime.now();
+        updateDate = createdDate;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        updateDate = LocalDateTime.now();
+    }
 }
