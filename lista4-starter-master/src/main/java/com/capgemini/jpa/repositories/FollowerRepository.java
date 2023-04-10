@@ -9,10 +9,9 @@ import java.util.List;
 
 public interface FollowerRepository extends JpaRepository<Follower, Long> {
 
-    //@EntityGraph(value = "follower-entity-graph")
     @Query("select new com.capgemini.jpa.repositories.FollowerEvent" +
             "(f.comment.event.time, f.comment.event.duration, f.comment.event.analysisRequired, f.comment.content, f.subscriptionDate) " +
-            "from Follower f join f.comment join f.comment.event " +
+            "from Follower f " +
             "where f.userId = :userId")
     List<FollowerEvent> findFollowerEventByUserId(@Param("userId") String userId);
 }

@@ -15,16 +15,14 @@ import java.util.List;
 @Entity
 @Table(name = "follower")
 @NamedEntityGraph(
-        name = "follower-entity-graph",
+        name = "Follower.comment",
         attributeNodes = {
-                @NamedAttributeNode("subscriptionDate"),
-                @NamedAttributeNode(value = "comment", subgraph = "comments-subgraph"),
+                @NamedAttributeNode(value = "comment", subgraph = "Comment.event"),
         },
         subgraphs = {
                 @NamedSubgraph(
-                        name = "comments-subgraph",
+                        name = "Comment.event",
                         attributeNodes = {
-                                @NamedAttributeNode("content"),
                                 @NamedAttributeNode("event")
                         }
                 )
