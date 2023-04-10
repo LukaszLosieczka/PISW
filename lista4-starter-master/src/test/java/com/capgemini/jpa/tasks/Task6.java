@@ -40,6 +40,7 @@ class Task6 {
         repository.saveAndFlush(follower);
         // when
         List<FollowerEvent> followers = repository.findFollowerEventByUserId(userId);
+        List<Follower> followers1 = repository.findFollowerByUserId(userId);
         // then
         assertThat(followers.size(), Matchers.is(1));
         FollowerEvent followerEvent = followers.get(0);
