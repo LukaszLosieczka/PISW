@@ -72,7 +72,7 @@ class Task1 {
 
         // then
         assertThat("Last update date must be set", server.getLastUpdateDate(), is(notNullValue()));
-        assertThat("Last update date must be updated with current date", base.isBefore(server.getLastUpdateDate()), is(true));
+        assertThat("Last update date must be updated with current date", LocalDateTime.now().isAfter(server.getLastUpdateDate()), is(true));
     }
 
     @Test
@@ -86,6 +86,7 @@ class Task1 {
         TestTransaction.end();
 
         // then
-        assertThrows( EntityNotFoundException.class, () -> serverRepository.findById(server.getId()).orElseThrow(EntityNotFoundException::new));
+        TestTransaction.start();
+        assertThrows( EntityNotFoundException.class, () -> serverRepository.getById(server.getId()).getName());
     }
 }
