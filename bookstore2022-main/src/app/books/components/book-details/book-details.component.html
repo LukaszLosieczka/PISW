@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-md-4">
+      <a routerLink="/books" class="btn btn-secondary">Go back</a>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <h2 class="display-1">{{ book.title }}</h2>
+    <h4 class="text-muted">{{ book.author }}</h4>
+    <h4>{{ book.year }}</h4>
+    <p class="text-muted font-weight-bold"> DESCRIPTION: </p>
+    <p>{{ book.description }}</p>
+  </div>
+  <div class="row mt-5">
+    <h3 class="text-muted">Reviews</h3>
+    <bs-book-review *ngFor="let review of reviews" [review]="review"></bs-book-review>
+  </div>
+</div>

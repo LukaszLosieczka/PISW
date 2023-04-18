@@ -15,4 +15,9 @@ export class BooksService {
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(booksApiPrefix);
   }
+
+  findBookById(id: String): Observable<Book>{
+    const url = `${booksApiPrefix}/${id}`;
+    return this.http.get<Book>(url);
+  }
 }
