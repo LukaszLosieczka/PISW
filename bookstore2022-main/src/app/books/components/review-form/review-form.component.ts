@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Review} from "../../model/review";
 import {ReviewService} from "../../services/review.service";
 import {ReviewDto} from "../../model/reviewDto";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'bs-review-form',
@@ -22,10 +23,13 @@ export class ReviewFormComponent{
       rate: 5,
     };
   }
-  onSubmit() {
-    this.review.forBook = this.bookId;
-    this.reviewService.saveReview(this.review).subscribe(error => console.log(error));
-    this.updateReviews.emit();
+  onSubmit(form: NgForm) {
+    if(form.valid) {
+      this.review.forBook = this.bookId;
+      this.reviewService.saveReview(this.review).subscribe(error => console.log(error));
+      this.updateReviews.emit();
+      form.resetForm()
+    }
   }
 
 }

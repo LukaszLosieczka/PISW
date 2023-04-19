@@ -50,6 +50,27 @@
       "title": "Don't like it",
       "description": "Anything is better than this.",
       "rate": 1
+    },
+    {
+      "forBook": 1,
+      "title": "bad",
+      "description": ":(",
+      "rate": 1,
+      "id": 4
+    },
+    {
+      "forBook": 1,
+      "title": "asd",
+      "description": "asd",
+      "rate": 5,
+      "id": 5
+    },
+    {
+      "forBook": 4,
+      "title": "asd",
+      "description": "asd",
+      "rate": 5,
+      "id": 6
     }
   ]
 }
