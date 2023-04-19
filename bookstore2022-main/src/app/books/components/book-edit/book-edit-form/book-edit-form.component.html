@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" id="form">
+  <p *ngIf="!form.valid" class="text-danger">Some fields are invalid</p>
+    <p>
+        <label for="title">Title </label>
+        <input type="text" id="title" name="title" formControlName="title" [(ngModel)]="book.title" class="form-control">
+    </p>
+
+    <p>
+        <label for="author">Author </label>
+        <input type="text" id="author" name="author" formControlName="author" [(ngModel)]="book.author" class="form-control">
+    </p>
+
+    <p>
+        <label for="description">Description </label>
+        <textarea type="text" id="description" name="description" formControlName="description" [(ngModel)]="book.description" class="form-control" rows="2"></textarea>
+    </p>
+
+    <p>
+        <label for="year">Year </label>
+        <input type="number" id="year" name="year" formControlName="year" [(ngModel)]="book.year" class="form-control">
+    </p>
+
+    <p>
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Save</button>
+        <button (click)="goBack()" type="button" class="btn btn-primary">Cancel</button>
+    </p>
+</form>

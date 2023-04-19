@@ -20,4 +20,8 @@ export class BooksService {
     const url = `${booksApiPrefix}/${id}`;
     return this.http.get<Book>(url);
   }
+
+  editBook(id: number, book: Book): Observable<Book> {
+    return this.http.put<Book>(`${booksApiPrefix}/${id}`, book);
+  }
 }
